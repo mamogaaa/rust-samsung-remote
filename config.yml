@@ -1,0 +1,150 @@
+serial:
+  device: /dev/cu.wchusbserial1420
+  baud_rate: 9600
+
+mqtt: mqtt://mqtt:mqtt@hassio.local:1883
+
+fan:
+  - pin:
+      number: 27
+    id: bf
+    name: Bathroom Fan
+
+light:
+  - pin:
+      number: 24
+      inverted: false
+    id: lrl
+    name: Living Room Lamp
+  - pin:
+      number: 26
+      inverted: false
+    id: bl
+    name: Bathroom Lamp
+  - pin:
+      number: 28
+      inverted: false
+    id: ll
+    name: Lobby Lamp
+  - pin:
+      number: 29
+      inverted: false
+    id: lm
+    name: Lobby Mirror
+  - pin:
+      number: 30
+      inverted: false
+    id: bdl
+    name: Bedroom Lamp
+  - pin:
+      number: 32
+      inverted: false
+    id: lbl
+    name: Library Lamp
+  - pin:
+      number: 33
+      inverted: false
+    id: kpl
+    name: Kitchen Primary Light
+  - pin:
+      number: 35
+      inverted: false
+    id: ksl
+    name: Kitchen Secondary Light
+  - pin:
+      number: 13
+      pwm: true
+    id: lrb
+    name: Living Room Backlight
+
+binary_sensor:
+  - pin:
+      number: A0
+    id: bdl_switch
+    on_press:
+      then:
+        - output.turn_on: bdl
+    on_release:
+      then:
+        - output.turn_off: bdl
+  - pin:
+      number: A1
+    id: lbl_switch
+    on_press:
+      then:
+        - output.turn_on: lbl
+    on_release:
+      then:
+        - output.turn_off: lbl
+  - pin:
+      number: A2
+    id: bl_switch
+    on_press:
+      then:
+        - output.turn_on: bl
+    on_release:
+      then:
+        - output.turn_off: bl
+  - pin:
+      number: A3
+    id: bf_switch
+    on_press:
+      then:
+        - output.turn_on: bf
+    on_release:
+      then:
+        - output.turn_off: bf
+  - pin:
+      number: A4
+    id: lm_swich
+    on_press:
+      then:
+        - output.turn_on: lm
+    on_release:
+      then:
+        - output.turn_off: lm
+  - pin:
+      number: A5
+    id: lrb_switch
+    on_press:
+      then:
+        - output.turn_on: lrb
+    on_release:
+      then:
+        - output.turn_off: lrb
+  - pin:
+      number: A8
+    id: ll_switch
+    on_press:
+      then:
+        - output.turn_on: ll
+    on_release:
+      then:
+        - output.turn_off: ll
+  - pin:
+      number: A9
+    id: lrl_switch
+    on_press:
+      then:
+        - output.turn_on: lrl
+    on_release:
+      then:
+        - output.turn_off: lrl
+  - pin:
+      number: A10
+    id: ksl_switch
+    on_press:
+      then:
+        - output.turn_on: ksl
+    on_release:
+      then:
+        - output.turn_off: ksl
+  - pin:
+      number: A11
+    id: kpl_switch
+    on_press:
+      then:
+        - output.turn_on: kpl
+    on_release:
+      then:
+        - output.turn_off: kpl
